@@ -1,0 +1,185 @@
+{
+	"id": "efad5440-7c47-4c4f-a638-5e2c4c349d09",
+	"name": "New Collection",
+	"timestamp": "2022-08-12T16:05:06.083Z",
+	"collection_id": "22596731-6c0e958c-ad0d-483d-8111-fd33b914bd99",
+	"folder_id": 0,
+	"environment_id": "22596731-e93a241d-00cd-40ed-95de-20eace3da5f3",
+	"totalPass": 7,
+	"totalFail": 0,
+	"results": [
+		{
+			"id": "44bb1203-2271-4db8-9e92-1dc642b8ea4c",
+			"name": "Authors",
+			"url": "https://fakerestapi.azurewebsites.net/api/v1/Authors",
+			"time": 239,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Test Cas1: the response is 200 OK": true,
+				"Body matches string": true,
+				"Test Cas2: Objects inside response contain, id, idBook, firstName, lastName": true
+			},
+			"testPassFailCounts": {
+				"Test Cas1: the response is 200 OK": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Body matches string": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Test Cas2: Objects inside response contain, id, idBook, firstName, lastName": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				239
+			],
+			"allTests": [
+				{
+					"Test Cas1: the response is 200 OK": true,
+					"Body matches string": true,
+					"Test Cas2: Objects inside response contain, id, idBook, firstName, lastName": true
+				}
+			]
+		},
+		{
+			"id": "a6ad1cd6-1872-45b5-9dac-5f2f77113bff",
+			"name": "Authors-idBook",
+			"url": "https://fakerestapi.azurewebsites.net/api/v1/Authors/authors/books/200",
+			"time": 99,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Searching with valid idBook should return relative data in response body": true
+			},
+			"testPassFailCounts": {
+				"Searching with valid idBook should return relative data in response body": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				99
+			],
+			"allTests": [
+				{
+					"Searching with valid idBook should return relative data in response body": true
+				}
+			]
+		},
+		{
+			"id": "aafbb932-3b53-4b50-a138-24af971d3b54",
+			"name": "Authors-id",
+			"url": "https://fakerestapi.azurewebsites.net/api/v1/Authors/200",
+			"time": 95,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"the data of specific id appeared corectly": true
+			},
+			"testPassFailCounts": {
+				"the data of specific id appeared corectly": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				95
+			],
+			"allTests": [
+				{
+					"the data of specific id appeared corectly": true
+				}
+			]
+		},
+		{
+			"id": "51e6fdf0-aa0d-406a-9369-2b4291d961e1",
+			"name": "Create Author",
+			"url": "https://fakerestapi.azurewebsites.net/api/v1/Authors",
+			"time": 106,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Successful POST request": true
+			},
+			"testPassFailCounts": {
+				"Successful POST request": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				106
+			],
+			"allTests": [
+				{
+					"Successful POST request": true
+				}
+			]
+		},
+		{
+			"id": "9aa250c6-d58c-4c08-a911-74eb0194c63b",
+			"name": "Update Record",
+			"url": "https://fakerestapi.azurewebsites.net/api/v1/Authors/200",
+			"time": 95,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Author record updated successfully": true
+			},
+			"testPassFailCounts": {
+				"Author record updated successfully": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				95
+			],
+			"allTests": [
+				{
+					"Author record updated successfully": true
+				}
+			]
+		}
+	],
+	"count": 1,
+	"totalTime": 634,
+	"collection": {
+		"requests": [
+			{
+				"id": "44bb1203-2271-4db8-9e92-1dc642b8ea4c",
+				"method": "GET"
+			},
+			{
+				"id": "a6ad1cd6-1872-45b5-9dac-5f2f77113bff",
+				"method": "GET"
+			},
+			{
+				"id": "aafbb932-3b53-4b50-a138-24af971d3b54",
+				"method": "GET"
+			},
+			{
+				"id": "51e6fdf0-aa0d-406a-9369-2b4291d961e1",
+				"method": "POST"
+			},
+			{
+				"id": "9aa250c6-d58c-4c08-a911-74eb0194c63b",
+				"method": "PUT"
+			}
+		]
+	}
+}

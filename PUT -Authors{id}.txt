@@ -1,0 +1,5 @@
+PUT /api/v1/Authors/{id}
+Test Case: Update (firstname, lastname) and confirm that Author's data in response is updated successfully.
+Expected Result: 200 OK
+Actual Result: 200 OK
+Status: Pass

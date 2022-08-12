@@ -1,0 +1,8 @@
+GET /api/v1/Authors/authors/books/{id}
+Test Case: The author's data is changed in GET request.
+Expected Result: 200 OK
+Actual Result: 200 OK
+Status: Pass
+The purpose of this test case is to make sure that if a change occurred 
+from one endpoint (PUT request), it will affect other endpoints as well (GET request) 
+this is a kind of integration testing.

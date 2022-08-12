@@ -1,0 +1,5 @@
+GET /api/v1/Authors/authors/books/{idBook}
+Test Case: Searching with valid idBook like 1 then all returned results in response body should contain idBook = 1 (same for idBook 2,3).
+Expected Result: 200 OK
+Actual Result: 200 OK
+Status: Pass

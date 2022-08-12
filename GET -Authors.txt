@@ -1,0 +1,5 @@
+ API: GET /api/v1/Authors
+ Test Case: response should be 200 OK
+ Expected Result: 200 OK
+ Actual Result: 200 OK
+ Status: Pass

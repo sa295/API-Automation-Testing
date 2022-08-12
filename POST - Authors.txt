@@ -1,0 +1,11 @@
+POST /api/v1/Authors.
+Test Case1: response should be from one of 200 to 201 Created
+Expected Result: 200 Created
+Actual Result: 200 OK
+Status: pass
+
+Test Case2: if firstname is missed in the request body (same for lastname)
+Expected Result: 400 
+Actual Result: 400
+Status: pass
+

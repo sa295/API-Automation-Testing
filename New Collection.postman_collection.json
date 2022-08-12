@@ -1,0 +1,272 @@
+{
+	"info": {
+		"_postman_id": "6c0e958c-ad0d-483d-8111-fd33b914bd99",
+		"name": "New Collection",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "22596731"
+	},
+	"item": [
+		{
+			"name": "Get Requests",
+			"item": [
+				{
+					"name": "Authors",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"//Test Case 1: Make sure the response is \"200 OK\".\r",
+									"pm.test(\"Test Cas1: the response is 200 OK\", function(){\r",
+									"pm.expect(pm.response.code).to.equal(200);\r",
+									"});\r",
+									"\r",
+									"//Test Case 2: Objects inside response contain, id, idBook, firstName, lastName.\r",
+									"pm.test(\"Test Cas2: Objects inside response contain, id, idBook, firstName, lastName\", function(){\r",
+									"    pm.test(\"Body matches string\", function () {\r",
+									"        pm.expect(pm.response.text()).to.include(\"firstName\",\"lastName\",\"id\",\"idBook\");\r",
+									"    });\r",
+									"});\r",
+									"\r",
+									"\r",
+									"\r",
+									"\r",
+									"\r",
+									"\r",
+									"\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BathURL}}api/v1/Authors",
+							"host": [
+								"{{BathURL}}api"
+							],
+							"path": [
+								"v1",
+								"Authors"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Authors-idBook",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"//Test Case 1: Searching with valid idBook should return relative data in response body.\r",
+									"pm.test(\"Searching with valid idBook should return relative data in response body\", function()\r",
+									"{\r",
+									"    pm.expect(pm.collectionVariables.get(\"authorsidbook\"));\r",
+									"});\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BathURL}}api/v1/Authors/authors/books/{{authorsidbook}}",
+							"host": [
+								"{{BathURL}}api"
+							],
+							"path": [
+								"v1",
+								"Authors",
+								"authors",
+								"books",
+								"{{authorsidbook}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Authors-id",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"//Test case 1: The author's data is changed in GET request\r",
+									"pm.test(\"the data of specific id appeared corectly\", function()\r",
+									"{\r",
+									"    pm.expect(pm.collectionVariables.get(\"authorsid\"));\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BathURL}}api/v1/Authors/{{authorsid}}",
+							"host": [
+								"{{BathURL}}api"
+							],
+							"path": [
+								"v1",
+								"Authors",
+								"{{authorsid}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "PostAndPut Requests",
+			"item": [
+				{
+					"name": "Create Author",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"//Test Case1: Register a new valid Author successfully and response code \"201 Created\".\r",
+									"var jsonData = pm.response.json();\r",
+									"pm.test(\"Successful POST request\", function () {\r",
+									"    pm.expect(pm.response.code).to.be.oneOf([200,202]);\r",
+									"});\r",
+									"\r",
+									"//Test Case 2: firstname & lastname should be mandatory\r",
+									"if(pm.response.code === 400){\r",
+									" pm.test(\"firstName or lastname is missing\" , function (){   \r",
+									"    (pm.response.code).to.equal(400);   \r",
+									"})\r",
+									"}\r",
+									"\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"id\": 500,\r\n  \"idBook\": 500,\r\n  \"firstName\":\"sssss\" ,\r\n  \"lastName\": \"ooooo\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BathURL}}api/v1/Authors",
+							"host": [
+								"{{BathURL}}api"
+							],
+							"path": [
+								"v1",
+								"Authors"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Record",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"//Test Case 1: Author's data is updated successfully.\r",
+									"pm.test(\"Author record updated successfully\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"//set authorsid collection variable\r",
+									"pm.collectionVariables.set(\"authorsid\", pm.response.json().id);\r",
+									"\r",
+									"//set authorsidBook collection variable\r",
+									"pm.collectionVariables.set(\"authorsidbook\", pm.response.json().idBook);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"id\": 200,\r\n  \"idBook\": 200,\r\n  \"firstName\": \"Ashraf\",\r\n  \"lastName\": \"ahmed\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BathURL}}api/v1/Authors/{{authorsid}}",
+							"host": [
+								"{{BathURL}}api"
+							],
+							"path": [
+								"v1",
+								"Authors",
+								"{{authorsid}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "authorsidbook",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"key": "authorsid",
+			"value": ""
+		}
+	]
+}
